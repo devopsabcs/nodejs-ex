@@ -1,0 +1,31 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- none
+
+pool:
+  name: DefaultOpenShift
+  #vmImage: ubuntu-latest
+
+steps:
+- task: oc-cmd@2
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'ARO_dev_sandbox_openshift'
+    version: '4.2'
+    cmd: 'oc status'
+    uselocalOc: true
+- task: NodeTool@0
+  enabled: false
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  enabled: false
+  displayName: 'npm install and build'
