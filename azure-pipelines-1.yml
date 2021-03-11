@@ -15,7 +15,7 @@ steps:
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'ARO_dev_sandbox_openshift'
-    version: '4.2'
+    #version: '4.2'
     cmd: 'oc version'
     uselocalOc: true
 - task: NodeTool@0
