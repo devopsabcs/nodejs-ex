@@ -13,7 +13,7 @@ steps:
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'ARO_dev_sandbox_openshift'
+    openshiftService: 'ARO_local_dev_cluster_redhat83'
     cmd: 'oc projects'
     uselocalOc: true
 - script: echo Hello, world!
