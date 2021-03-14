@@ -13,13 +13,13 @@ steps:
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'ARO_local_dev_cluster_redhat83'
+    openshiftService: 'ARO_local_dev_cluster_redhat83_basic_auth'
     cmd: 'oc projects'
     uselocalOc: true
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'ARO_local_dev_cluster_redhat83'
+    openshiftService: 'ARO_local_dev_cluster_redhat83_basic_auth'
     cmd: 'oc project myapp'
     uselocalOc: true
 - script: echo Hello, world!
@@ -32,12 +32,12 @@ steps:
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'ARO_local_dev_cluster_redhat83'
+    openshiftService: 'ARO_local_dev_cluster_redhat83_basic_auth'
     cmd: 'oc start-build nodejs-ex  --follow'
     uselocalOc: true
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'ARO_local_dev_cluster_redhat83'
+    openshiftService: 'ARO_local_dev_cluster_redhat83_basic_auth'
     cmd: 'oc status'
     uselocalOc: true
